@@ -5,7 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('https://wallpapercave.com/wp/wp2863967.gif');
+  background-size: cover;
+  color: #888
 }
+
+/* 
+GREY: "#888888",
+DARKEST:"#1F2224",
+DARKER: "#2B2D2F",
+DARK: "#343638",
+DARKISH:"#444749", 
+*/
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

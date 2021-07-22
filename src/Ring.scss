@@ -1,0 +1,100 @@
+@mixin on-circle($item-count, $circle-size, $item-size) {
+    position: relative;
+    width:  $circle-size;
+    height: $circle-size;
+    padding: 0;
+    border-radius: 50%; 
+    list-style: none;       
+    transition: ease-in-out 0.11s;
+
+    
+    > button, > div > button {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top:  50%; 
+      left: 50%;
+      width:  $item-size;
+      height: $item-size;
+      margin: -($item-size / 2);
+      font-size: large;
+      font-weight: bold;
+    
+      $angle: (360 / $item-count);
+      $rot: 0;
+  
+      @for $i from 1 through $item-count {
+        &:nth-of-type(#{$i}) {
+          transform: 
+            rotate($rot * 1deg) 
+            translate($circle-size / 2) 
+            rotate($rot * -1deg);
+            transition: ease-in-out 0.11s;
+        }
+  
+        $rot: $rot + $angle;
+      }
+    }
+}
+
+.ring {
+    @include on-circle($item-count: 10, $circle-size: 42em, $item-size: 6em);
+    margin: 5em auto 0;
+    border: solid 3px darkslateblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    button { 
+      display: block;
+      transition: .15s ease-in-out;
+      border-radius: 50%;
+      
+      &:hover {
+        box-shadow: 0 5px 0 #2B2D2F;
+        cursor: pointer;
+      }
+      &:active {
+        background-color: #444749;
+        cursor: pointer;
+      }
+    }
+
+}
+
+.circle {
+  @include on-circle($item-count: 7, $circle-size: 17em, $item-size: 6em);
+  border: solid 3px lightgrey;
+  margin: 2em auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  button { 
+    display: block;
+    transition: .15s ease-in-out;
+    border-radius: 50%;
+    
+    &:hover {
+      box-shadow: 0 5px 0 #2B2D2F;
+    }
+    &:active {
+      background-color: #444749;
+    }
+  }
+}
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
